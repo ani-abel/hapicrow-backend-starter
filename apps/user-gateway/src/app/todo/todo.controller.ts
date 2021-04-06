@@ -1,9 +1,8 @@
 import { Controller, Get, Body, Post, Param, Delete, Patch } from '@nestjs/common';
-import { TodoDTO, CreateTodoDTO, UpdateTodoDTO, CustomAPIType } from '@hapicrow-backend-demo/interfaces';
+import { DateCreatedPipe, TodoDTO, CreateTodoDTO, UpdateTodoDTO, CustomAPIType } from '@hapicrow-backend-demo/interfaces';
 import { Observable } from 'rxjs';
 import { ApiConsumes, ApiOperation, ApiProduces, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { TodoService } from './todo.service';
-
 @ApiTags('todo')
 @Controller('todo')
 export class TodoController {
@@ -18,7 +17,7 @@ export class TodoController {
     type: TodoDTO,
   })
   @Post("/create-todo")
-  createTodo(@Body() payload: CreateTodoDTO): Observable<TodoDTO> {
+  createTodo(@Body(new DateCreatedPipe()) payload: CreateTodoDTO): Observable<TodoDTO> {
     return this.todoSrv.createTodo(payload);
   }
 
@@ -70,7 +69,7 @@ export class TodoController {
     type: CustomAPIType,
   })
   @Patch("/update-todo")
-  updateTodo(@Body() payload: UpdateTodoDTO): Observable<CustomAPIType> {
+  updateTodo(@Body(new DateCreatedPipe()) payload: UpdateTodoDTO): Observable<CustomAPIType> {
     return this.todoSrv.updateTodo(payload);
   }
 }
