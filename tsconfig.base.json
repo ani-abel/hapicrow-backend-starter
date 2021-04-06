@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@hapicrow-backend-demo/utils": ["libs/utils/src/index.ts"],
+      "@hapicrow-backend-demo/schematics": ["libs/schematics/src/index.ts"],
+      "@hapicrow-backend-demo/interfaces": ["libs/interfaces/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
