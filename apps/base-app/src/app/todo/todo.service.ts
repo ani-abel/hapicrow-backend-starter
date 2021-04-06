@@ -1,12 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { TodoDTO, CreateTodoDTO, UpdateTodoDTO } from '@hapicrow-backend-demo/interfaces';
+import { TodoDTO, CreateTodoDTO, UpdateTodoDTO, CustomAPIType } from '@hapicrow-backend-demo/interfaces';
 import { TodoDocument, Todo } from '../../schemas/todo.schema';
-import { BaseService } from '../../utils/generics/BaseService.service';
-import { CustomAPIType } from '../../utils/types/shared.types';
-import { OperationType } from '../../utils/types/app.constants';
+import { OperationType } from '@hapicrow-backend-demo/utils';
 import { mapTodoToDTO } from './dto/todo.dto';
+import { BaseService } from '../utils/generics/BaseService.service'
 
 @Injectable()
 export class TodoService extends BaseService<TodoDocument> {
