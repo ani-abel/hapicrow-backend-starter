@@ -1,5 +1,6 @@
 # HapiCROW Demo API
 
+Start Redis: `redis-server`
 Start Base-App: `nx serve base-app`
 Start User-Gateway: `nx serve user-gateway`
 Start Developer-Gateway: `nx serve dev-gateway`
