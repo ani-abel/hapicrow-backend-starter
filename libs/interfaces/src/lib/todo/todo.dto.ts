@@ -21,7 +21,9 @@ export class CustomAPIType {
 }
 
 export class CreateTodoDTO {
-  @ApiProperty()
+  @ApiProperty({
+    description: 'Hello world'
+  })
   Title: string;
 
   @ApiProperty()

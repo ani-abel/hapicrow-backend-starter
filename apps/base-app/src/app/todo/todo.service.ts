@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import { TodoDTO, CreateTodoDTO, UpdateTodoDTO, CustomAPIType } from '@hapicrow-backend-demo/interfaces';
 import { TodoDocument, Todo } from '../../schemas/todo.schema';
 import { OperationType } from '@hapicrow-backend-demo/utils';
-import { mapTodoToDTO } from './dto/todo.dto';
+import { mapTodoToDTO, mapSingle } from './dto/todo.dto';
 import { BaseService } from '../utils/generics/BaseService.service'
 
 @Injectable()
@@ -21,7 +21,7 @@ export class TodoService extends BaseService<TodoDocument> {
 
   async createTodo(payload: CreateTodoDTO): Promise<TodoDTO> {
     const createdTask: Todo = await this.create({ ...payload });
-    return (mapTodoToDTO(createdTask) as TodoDTO); // Casting
+    return (mapSingle(createdTask) as TodoDTO); // Casting
   }
 
   async findTodos(): Promise<TodoDTO[]> {

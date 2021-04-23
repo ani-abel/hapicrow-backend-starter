@@ -2,6 +2,6 @@ POST http://localhost:3333/api/todo/create-todo?fields=Id,Title,DateCreated HTTP
 content-type: application/json
 
 {
-    "Title": "Start shopping",
-    "StartDate": "2021-04-04T06:54:50.926Z"
+    "Title": "Start mopping",
+    "StartDate": "2021-04-24T06:54:50.926Z"
 }
